@@ -2,12 +2,11 @@ import React from "react";
 import bgImage from "../assets/monk.jpg";
 import BusHotelSearch from "./BusHotelSearch";
 import Navbar from "./Navbar";
-import { useRef } from "react";
 
 const Homepage = () => {
   return (
     <div
-      className="h-max-screen w-max-screen bg-no-repeat bg-center object-cover bg-cover"
+      className="h-max-screen w-max-screen bg-no-repeat bg-center object-contain bg-cover"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <Navbar />

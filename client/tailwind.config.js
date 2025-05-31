@@ -9,8 +9,10 @@ export default {
         helveticaCompressed: ['"Helvetica Compressed"', "sans-serif"],
         poppins: ['"Poppins"', "sans-serif"],
       },
+      screens: {
+        custom: "1100px",
+      },
     },
   },
   plugins: [],
 };
-// tailwind.config.js
