@@ -13,14 +13,13 @@ const Navbar = () => {
     "Activities",
     "How to reach",
     "Contact us",
-    "Tour and Packages",
     "About us",
   ];
 
   const authLinks = ["Login", "Signup"];
 
   return (
-    <div className="w-full flex flex-col md:flex-row items-start md:items-center p-4">
+    <div className="w-full flex flex-col md:flex-row items-start md:items-center py-4">
       {/* Logo on the left */}
       <div className="h-16 w-[120px] md:mt-5 md:mr-10">
         <img
@@ -31,11 +30,11 @@ const Navbar = () => {
       </div>
 
       {/* Center + Auth Buttons */}
-      <div className="flex-1 mt-4 md:mt-5 md:ml-6 w-full">
+      <div className="flex-1 mt-4 md:mt-5 md:ml-6 truncate">
         {/* Desktop layout */}
         <div className="hidden md:flex justify-around items-center w-full">
           {/* Main nav buttons in glass div */}
-          <nav className="bg-white/20 backdrop-blur-md h-[6vh] rounded-full px-4 shadow-lg flex items-center flex-wrap gap-6 w-[65%]">
+          <nav className="bg-white/20 backdrop-blur-md h-[5.2vh] rounded-full px-4 shadow-lg flex items-center flex-wrap gap-6 w-[65%]">
             {mainLinks.map((item, index) => (
               <button
                 key={item}
@@ -45,7 +44,7 @@ const Navbar = () => {
                     behavior: "smooth",
                   })
                 }
-                className={`rounded-full px-3 py-1.5 text-sm transition duration-200 font-spartan ${
+                className={`rounded-full px-3 py-1.5 text-xl overflow-hidden transition duration-200 font-spartan ${
                   item === "Home"
                     ? "bg-[#023471] text-white"
                     : "hover:bg-white hover:text-black"
@@ -57,7 +56,7 @@ const Navbar = () => {
           </nav>
 
           {/* Auth buttons in separate glass div */}
-          <nav className="bg-white/20 backdrop-blur-md h-[6vh] rounded-full shadow-lg px-1 flex items-center w-[13%] justify-between">
+          <nav className="bg-white/20 backdrop-blur-md h-[6vh] rounded-full shadow-lg px-1 flex items-center  justify-between">
             {["Login", "Signup"].map((item) => (
               <button
                 key={item}

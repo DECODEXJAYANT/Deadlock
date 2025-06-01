@@ -155,11 +155,11 @@ const RecommendedHotels = () => {
       <div className="flex justify-evenly flex-col mb-5">
         <CountdownTimer />
         <HotelCard
-          title="Fab Hotels Manali"
+          title="Manvi Hotels Manali"
           description="60% flat off on booking now"
         />
         <HotelCard
-          title="Fab Hotels Manali"
+          title="Panku Hotels Simla"
           description="60% flat off on booking now"
         />
       </div>
