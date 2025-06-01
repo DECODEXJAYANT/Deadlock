@@ -10,30 +10,31 @@ const Navbar = () => {
   const mainLinks = [
     "Home",
     "Destinations",
-    "Tour and Packages",
+    "Activities",
     "How to reach",
     "Contact us",
+    "About us",
   ];
 
   const authLinks = ["Login", "Signup"];
 
   return (
-    <div className="w-full flex items-center justify-between px-4 py-2 shadow-md bg-transparent z-50">
+    <div className="w-full flex flex-col md:flex-row items-start md:items-center py-4">
       {/* Logo on the left */}
-      <div className="w-[10%] flex items-center justify-center h-16">
+      <div className="h-16 w-[120px] md:mt-5 md:mr-10">
         <img
           src={logo}
           alt="Logo"
-          className="h-full object-contain hover:cursor-pointer"
+          className="object-contain h-full w-full hover:cursor-pointer"
         />
       </div>
 
       {/* Center + Auth Buttons */}
-      {/* <div className="flex-1 flex flex-col custom:flex-row justify-between items-center"> */}
+      <div className="flex-1 mt-4 md:mt-5 md:ml-6 truncate">
         {/* Desktop layout */}
-        <div className="hidden custom:flex justify-between items-center w-[85%]">
-          {/* Main nav buttons */}
-          <nav className="ml-20 bg-white/20 backdrop-blur-md h-[6vh] rounded-full shadow-lg flex items-center gap-6">
+        <div className="hidden md:flex justify-around items-center w-full">
+          {/* Main nav buttons in glass div */}
+          <nav className="bg-white/20 backdrop-blur-md h-[5.2vh] rounded-full px-4 shadow-lg flex items-center flex-wrap gap-6 w-[65%]">
             {mainLinks.map((item, index) => (
               <button
                 key={item}
@@ -43,7 +44,7 @@ const Navbar = () => {
                     behavior: "smooth",
                   })
                 }
-                className={`rounded-full px-3 py-1.5 text-sm transition duration-200 font-spartan ${
+                className={`rounded-full px-3 py-1.5 text-xl overflow-hidden transition duration-200 font-spartan ${
                   item === "Home"
                     ? "bg-[#023471] text-white"
                     : "hover:bg-white hover:text-black"
@@ -54,16 +55,16 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Auth buttons */}
-          <nav className="bg-white/20 backdrop-blur-md h-[6vh] rounded-full shadow-lg px-1 flex items-center justify-evenly w-[12%]">
-            {authLinks.map((item) => (
+          {/* Auth buttons in separate glass div */}
+          <nav className="bg-white/20 backdrop-blur-md h-[6vh] rounded-full shadow-lg px-1 flex items-center  justify-between">
+            {["Login", "Signup"].map((item) => (
               <button
                 key={item}
                 onClick={() => {
                   if (item === "Login") navigate("/login");
                   else navigate("/signup");
                 }}
-                className={`text-sm rounded-full px-3 py-1.5 transition duration-200 font-spartan ${
+                className={`text-sm rounded-full px-5 py-2 transition duration-200 font-spartan ${
                   item === "Login"
                     ? "bg-[#023471] text-white"
                     : "hover:bg-white hover:text-black"
@@ -76,7 +77,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile layout */}
-        <div className="custom:hidden flex justify-end w-full">
+        <div className="md:hidden flex justify-between items-center w-full">
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -84,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile dropdown content */}
         {isOpen && (
-          <div className="flex flex-col gap-4 mt-3 custom:hidden w-full">
+          <div className="flex flex-col gap-4 mt-3 md:hidden">
             <div className="bg-white/30 backdrop-blur-md rounded-xl p-4 shadow">
               {mainLinks.map((item, index) => (
                 <button
@@ -110,11 +111,6 @@ const Navbar = () => {
               {authLinks.map((item) => (
                 <button
                   key={item}
-                  onClick={() =>
-                    item === "Login"
-                      ? navigate("/login")
-                      : navigate("/signup")
-                  }
                   className={`text-sm rounded-full px-4 py-2 transition duration-200 ${
                     item === "Login"
                       ? "bg-[#023471] text-white"
@@ -127,7 +123,7 @@ const Navbar = () => {
             </div>
           </div>
         )}
-      
+      </div>
     </div>
   );
 };

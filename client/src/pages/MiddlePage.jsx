@@ -10,8 +10,8 @@ export default function MiddlePage() {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col">
-      <div className="h-[80vh] flex justify-between">
-        <div className="flex flex-col w-[60vw] bg-white ml-20">
+      <div className="h-[105vh] flex justify-between">
+        <div className="flex flex-col w-[60vw] bg-white ml-20 truncate">
           <div className="font-spartan font-bold bg-[#023471] w-[20vw] mt-[8vh] text-center p-2 text-white rounded-full hover:cursor-pointer hover:bg-blue-700">
             Why choose himachal tourism?
           </div>
@@ -58,7 +58,7 @@ export default function MiddlePage() {
             </div>
           </div>
         </div>
-        <div className="flex h-[120vh] mx-auto w-[37vw] justify-center ">
+        <div className="flex h-[120vh] mx-auto w-[37vw] justify-center truncate ">
           <div className="flex py-auto flex-col justify-center">
             <div className=" h-[95vh] flex flex-col items-end justify-center rounded-xl">
               <button className="font-spartan text-lg bg-[#023471] text-white rounded-full p-1 px-5">

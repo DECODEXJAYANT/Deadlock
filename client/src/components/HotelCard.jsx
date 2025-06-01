@@ -60,43 +60,43 @@ import logo from "../assets/tiharahotel.jpg";
 
 const HotelCard = ({ hotel }) => {
   return (
-    <div className="grid grid-cols-2 w-[29vw] rounded-2xl shadow-md bg-white h-[30vh]">
+    <div className="flex w-[22vw] hover:border-red-300 border-2 hover:cursor-pointer rounded-2xl shadow-md bg-white h-[25vh]">
       {/* Image Section */}
 
-      <div className="w-[180px] h-[175px] rounded-xl m-auto">
+      <div className="rounded-xl items-center flex">
         <img
-          src={logo}
+          src={logo||hotel.image}
           alt={hotel.name}
-          className="w-full h-full  object-cover rounded-xl"
+          className=" h-[20vh] w-[10vw] object-contain rounded-xl"
         />
       </div>
 
       {/* Info Section */}
-      <div className="flex flex-col my-auto">
+      <div className="flex flex-col my-auto truncate">
         <div>
           <h2 className="text-lg font-semibold">{hotel.name}</h2>
           <p className="text-gray-600 text-sm">{hotel.location}</p>
           <div className="flex items-center mt-1">
             <span className="text-base font-bold text-green-700">
-              ₹ {hotel.price}/night
+              {hotel.discountedPrice}/day
             </span>
             <span className="line-through text-gray-400 ml-2">
-              ₹ {hotel.originalPrice}
+              {hotel.originalPrice}
             </span>
           </div>
-          <p className="text-sm mt-1">1 Room - 2 Guests</p>
+          <p className="text-sm mt-1">{hotel.roomInfo}</p>
         </div>
 
         <div className="flex items-center">
           <span className="text-yellow-500">⭐⭐⭐⭐☆</span>
-          <span className="text-gray-500 ml-2">({hotel.rating})</span>
+          <span className="text-gray-500 ml-2">({hotel.reviews})</span>
         </div>
 
         <div className="flex justify-between mt-2">
-          <button className="bg-white transition-transform duration-300 hover:scale-105 text-black px-3 py-1 rounded-full shadow">
+          <button className="bg-white hover:border-green-500 border-2 transition-transform duration-300 hover:scale-105 text-black px-3 py-1 rounded-full shadow">
             View details
           </button>
-          <button className="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-1 rounded-full transition-transform duration-300 hover:scale-105">
+          <button className="bg-yellow-500 hover:border-green-500 border-2 hover:bg-yellow-400 text-black px-4 py-1 rounded-full transition-transform duration-300 hover:scale-105">
             Book now
           </button>
         </div>
