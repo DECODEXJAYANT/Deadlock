@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const PlanYourTrip = () => {
+const PlanYourTripPage = () => {
   const [destination, setDestination] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -77,4 +77,4 @@ const PlanYourTrip = () => {
   );
 };
 
-export default PlanYourTrip;
+export default PlanYourTripPage;
