@@ -2,6 +2,19 @@ import React, { useState, useEffect } from 'react';
 import HotelCard from '../components/HotelCard';
 
 const HotelOfferPage = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   const allHotels = [
     { name: 'The Himalayan', rating: 4.5, price: 15000, amenities: ['wifi', 'swimming-pool', 'geyser'], image: 'the-himalayan' },
     { name: 'Snow Valley Resorts', rating: 4.2, price: 12000, amenities: ['wifi', 'geyser'], image: 'snow-valley-resorts' },
@@ -48,8 +61,12 @@ const HotelOfferPage = () => {
       );
     }
 
-    setFilteredHotels(currentHotels);
-  }, [searchTerm, priceRange, selectedRatings, selectedAmenities]);
+    if (screenWidth <= 768) {
+      setFilteredHotels(currentHotels.slice(0, 6)); // Limit to 6 hotels on smaller screens
+    } else {
+      setFilteredHotels(currentHotels);
+    }
+  }, [searchTerm, priceRange, selectedRatings, selectedAmenities, screenWidth]);
 
   const handleRatingChange = (rating) => {
     setSelectedRatings(prev =>
@@ -85,7 +102,7 @@ const HotelOfferPage = () => {
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-1/4 pr-0 md:pr-8 mb-8 md:mb-0">
-            <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+            <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md sticky top-0">
               <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Filter:</h2>
               <div className="mb-4 sm:mb-6">
                 <h3 className="text-base sm:text-lg font-semibold mb-2">Price Range</h3>
