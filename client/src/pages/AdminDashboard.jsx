@@ -31,13 +31,48 @@ const remainingRoomsData = [
 ];
 
 const recentBookings = [
-  { name: "Kartik Gadade", roomNo: "Deluxe #38", duration: "4D 3N", checkout: "16 Sept" },
-  { name: "Rohit Choudhary", roomNo: "Regular #21", duration: "3D 2N", checkout: "15 Sept" },
-  { name: "Lakshya Kantiwal", roomNo: "Deluxe #43", duration: "1D 1N", checkout: "14 Sept" },
-  { name: "Khushi Singh", roomNo: "Balcony room #47", duration: "3D 2N", checkout: "15 Sept" },
-  { name: "Kartik Gadade", roomNo: "Deluxe #24", duration: "4D 3N", checkout: "16 Sept" },
-  { name: "Rohit Choudhary", roomNo: "Regular #13", duration: "3D 2N", checkout: "15 Sept" },
-  { name: "Lakshya Kantiwal", roomNo: "Deluxe #23", duration: "1D 1N", checkout: "14 Sept" },
+  {
+    name: "Kartik Gadade",
+    roomNo: "Deluxe #38",
+    duration: "4D 3N",
+    checkout: "16 Sept",
+  },
+  {
+    name: "Rohit Choudhary",
+    roomNo: "Regular #21",
+    duration: "3D 2N",
+    checkout: "15 Sept",
+  },
+  {
+    name: "Lakshya Kantiwal",
+    roomNo: "Deluxe #43",
+    duration: "1D 1N",
+    checkout: "14 Sept",
+  },
+  {
+    name: "Khushi Singh",
+    roomNo: "Balcony room #47",
+    duration: "3D 2N",
+    checkout: "15 Sept",
+  },
+  {
+    name: "Kartik Gadade",
+    roomNo: "Deluxe #24",
+    duration: "4D 3N",
+    checkout: "16 Sept",
+  },
+  {
+    name: "Rohit Choudhary",
+    roomNo: "Regular #13",
+    duration: "3D 2N",
+    checkout: "15 Sept",
+  },
+  {
+    name: "Lakshya Kantiwal",
+    roomNo: "Deluxe #23",
+    duration: "1D 1N",
+    checkout: "14 Sept",
+  },
 ];
 
 const upcomingGuests = [
@@ -49,7 +84,6 @@ const upcomingGuests = [
 
 const AdminDashboard = () => {
   const [selectedTimeRange, setSelectedTimeRange] = useState("Last week");
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const daysOfWeek = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
   const currentMonth = "September";
@@ -73,7 +107,6 @@ const AdminDashboard = () => {
 
         {/* Summary cards */}
         <div className="flex space-x-4 mt-4">
-
           <div className="max-w-[20vw] flex-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg p-4 flex items-center space-x-4 shadow-md">
             <div className="bg-white rounded p-2">
               <svg
@@ -83,17 +116,25 @@ const AdminDashboard = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2v-5H3v5a2 2 0 002 2z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2v-5H3v5a2 2 0 002 2z"
+                />
               </svg>
             </div>
             <div className="flex justify-evenly">
               <div className="">
-              <div>New bookings</div>
-              <span className="text-2xl font-bold">47</span>
+                <div>New bookings</div>
+                <span className="text-2xl font-bold">47</span>
               </div>
               <div className="flex text-green-500 text-sm mt-1 flex-col">
-                <div className="bg-white text-green-500 rounded-full px-2">▲ 9.40% </div>
-                <p>more from last week</p></div>
+                <div className="bg-white text-green-500 rounded-full px-2">
+                  ▲ 9.40%{" "}
+                </div>
+                <p>more from last week</p>
+              </div>
             </div>
           </div>
 
@@ -106,7 +147,12 @@ const AdminDashboard = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2v-5H3v5a2 2 0 002 2z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2v-5H3v5a2 2 0 002 2z"
+                />
               </svg>
             </div>
             <div>
@@ -127,14 +173,22 @@ const AdminDashboard = () => {
             <div className="flex justify-between items-center mb-4">
               <div className="font-semibold">Recent bookings schedule</div>
               <div className="flex items-center space-x-2">
-                <button className="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300">{'<'}</button>
-                <div>{currentMonth} {currentYear}</div>
-                <button className="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300">{'>'}</button>
+                <button className="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300">
+                  {"<"}
+                </button>
+                <div>
+                  {currentMonth} {currentYear}
+                </div>
+                <button className="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300">
+                  {">"}
+                </button>
               </div>
             </div>
             <div className="grid grid-cols-7 text-center text-sm text-gray-600 mb-2">
               {daysOfWeek.map((day) => (
-                <div key={day} className="font-semibold">{day}</div>
+                <div key={day} className="font-semibold">
+                  {day}
+                </div>
               ))}
             </div>
             <div className="grid grid-cols-7 text-center text-gray-700">
@@ -162,7 +216,10 @@ const AdminDashboard = () => {
               </thead>
               <tbody>
                 {recentBookings.map((booking, idx) => (
-                  <tr key={idx} className="border-b border-gray-200 hover:bg-gray-100">
+                  <tr
+                    key={idx}
+                    className="border-b border-gray-200 hover:bg-gray-100"
+                  >
                     <td className="py-2">{booking.name}</td>
                     <td className="py-2">{booking.roomNo}</td>
                     <td className="py-2">{booking.duration}</td>
@@ -177,7 +234,9 @@ const AdminDashboard = () => {
           <div className="space-y-6">
             {/* Upcoming guests */}
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <div className="font-semibold mb-4">Today's Upcoming guest list</div>
+              <div className="font-semibold mb-4">
+                Today's Upcoming guest list
+              </div>
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="border-b border-gray-300">
@@ -190,7 +249,10 @@ const AdminDashboard = () => {
                 </thead>
                 <tbody>
                   {upcomingGuests.map((guest, idx) => (
-                    <tr key={idx} className="border-b border-gray-200 hover:bg-gray-100">
+                    <tr
+                      key={idx}
+                      className="border-b border-gray-200 hover:bg-gray-100"
+                    >
                       <td className="py-2">{guest.name}</td>
                       <td className="py-2">{guest.room}</td>
                       <td className="py-2">{guest.no}</td>
@@ -221,7 +283,10 @@ const AdminDashboard = () => {
                     label
                   >
                     {newBookingsData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
                     ))}
                   </Pie>
                   <Legend />
@@ -244,7 +309,11 @@ const AdminDashboard = () => {
             <div className="bg-white rounded-lg p-6 shadow-md">
               <div className="font-semibold mb-4">Remaining rooms</div>
               <ResponsiveContainer width="100%" height={150}>
-                <BarChart data={remainingRoomsData} layout="vertical" margin={{ left: 20 }}>
+                <BarChart
+                  data={remainingRoomsData}
+                  layout="vertical"
+                  margin={{ left: 20 }}
+                >
                   <XAxis type="number" hide />
                   <YAxis dataKey="name" type="category" width={150} />
                   <Bar dataKey="value" radius={[10, 10, 10, 10]}>
